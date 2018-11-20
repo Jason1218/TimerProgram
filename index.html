@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>Salary Timer</title>
+	<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+	<h1>Jason's Salary Timer</h1>
+	
+				<p>Current time: <span id="time"></span></p>
+				<p>Time Passed: <span id="timer"></span></p>
+	
+				<p>Enter your hourly wage: 
+					<input type="number" name="wage" value="0" id="wage" />
+				</p>
+			
+		
+				<p>Money Earned: <span id="pay"></span></p>
+			
+	<p>
+		<button id="start_timer" onclick="start_timer();">Reset Timer</button>
+	</p>
+	<script type="text/javascript" charset="utf-8">
+		var start, timer_id;
+		
+		// Start it up
+		start_timer();
+			
+		function start_timer() {
+			start = new Date();
+			timer();	
+			if (timer_id) {
+				clearInterval(timer_id);
+			}
+			timer_id = setInterval(function(){timer()},500);
+		}
+		
+		function leadingZero(num) {
+			(String(num).length < 2) ? num = String("0" + num) :  num = String(num);
+			return num;
+		}
+		
+		function timer() {
+			var wage = document.getElementById('wage').value;
+			var now = new Date();
+			// Change in seconds
+			var change = (now-start)/1000;
+			
+			var hours = leadingZero(parseInt( change / 3600 ) % 24);
+			var minutes = leadingZero(parseInt( change / 60 ) % 60);
+			var seconds = leadingZero((change % 60).toFixed(0));
+			var formatted_time = now.toLocaleTimeString();
+			document.getElementById('time').innerHTML = formatted_time;
+			document.getElementById('timer').innerHTML = hours+':'+minutes+':'+seconds;
+			document.getElementById('pay').innerHTML = '$'+((change)*wage/60/60).toFixed(2);
+		}
+	</script>
+</body>
+</html>
