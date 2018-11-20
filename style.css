@@ -1,0 +1,29 @@
+h1{
+	text-align: center;
+	font-size: 70px;
+}
+
+body{
+	background-color: lightblue;
+	text-align: center;
+	
+}
+
+#timer{	
+	;
+	font-family: "Lato";
+	font-size: 80px;
+	font-weight: 300;
+}
+
+button{
+	width: 100px;
+	height: 35px;
+}
+button:hover{
+	cursor: pointer;
+}
+
+div{
+	font-size: 30px;
+}
