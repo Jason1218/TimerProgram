@@ -5,16 +5,11 @@ h1{
 
 body{
 	background-color: lightblue;
+	font-size: 32px;
 	text-align: center;
 	
 }
 
-#timer{	
-	;
-	font-family: "Lato";
-	font-size: 80px;
-	font-weight: 300;
-}
 
 button{
 	width: 100px;
